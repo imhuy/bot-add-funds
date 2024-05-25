@@ -1,0 +1,23 @@
+{
+	"name": "express",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.ts",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "nodemon api/index.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@vercel/postgres": "^0.7.2",
+		"axios": "^1.6.7",
+		"cors": "^2.8.5",
+		"dotenv": "^16.4.1",
+		"express": "^4.18.2",
+		"moment": "^2.30.1",
+		"node-cron": "^3.0.3",
+		"node-rsa": "^1.1.1"
+	}
+}

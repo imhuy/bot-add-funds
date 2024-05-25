@@ -19,9 +19,13 @@ app.get('/', async function (req, res) {
 });
 
 app.post('/', async function (req, res) {
-    let message = req.body.message.text;
-    let payId = message.split('/')[0];
-    let payAmount = message.split('/')[1];
+
+    let message = req?.body?.message?.text;
+    let payId = message?.split('/')[0];
+
+    let payAmount = message?.split('/')[1];
+    if (!payId) console.log('Invalid payId')
+    if (!payAmount) console.log('Invalid payAmount')
     const myHeaders = new Headers();
     myHeaders.append("accept", "application/json");
     myHeaders.append("Authorization", process.env.TOKEN);
@@ -31,8 +35,6 @@ app.post('/', async function (req, res) {
         "content": payId.toUpperCase(),
         "amount": payAmount
     });
-
-    console.log('rawrawraw', raw);
 
     const requestOptions = {
         method: "POST",

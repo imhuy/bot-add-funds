@@ -15,7 +15,7 @@ const moment = require('moment');
 
 app.get('/', async function (req, res) {
 
-    res.send(`Welcome to CRON server ${process.env.BOT_TOKEN}`);
+    res.send(`Welcome to my bot`);
 });
 
 app.post('/', async function (req, res) {
@@ -53,7 +53,7 @@ app.post('/', async function (req, res) {
         redirect: "follow"
     };
 
-    let addfunds = await fetch("http://14.225.210.125/api/payments/add-amount", requestOptions)
+    let addfunds = await fetch("https://gektech.online/api/payments/add-amount", requestOptions)
     let response = await addfunds.json();
 
     await axios.post(`${url}${process.env.BOT_TOKEN}/sendMessage`,

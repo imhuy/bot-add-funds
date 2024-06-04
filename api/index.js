@@ -23,7 +23,8 @@ app.post('/', async function (req, res) {
     let message = req?.body?.message?.text;
 
     if (!message) {
-        return res.send('Invalid message')
+        res.send('Nạp tiền không thành công');
+        return;
     }
     let payId = message?.split('/')[0];
 
@@ -31,8 +32,8 @@ app.post('/', async function (req, res) {
     payAmount = Number(payAmount);
 
     if (!payId || !payAmount) {
-        console.log('Invalid payId or payAmount')
-        return res.send('Invalid payId or payAmount')
+        res.send('Nạp tiền không thành công');
+        return;
     }
 
     const myHeaders = new Headers();
@@ -61,7 +62,7 @@ app.post('/', async function (req, res) {
             text: response?.message ? response.message : 'Nạp tiền không thành công',
         })
 
-    res.send(`Welcome to CRON server ${process.env.BOT_TOKEN}`);
+    res.send(`Welcome  ${response?.message ? response.message : 'Nạp tiền không thành công'}`);
 });
 
 
